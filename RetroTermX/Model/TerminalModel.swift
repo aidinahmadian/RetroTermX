@@ -30,6 +30,8 @@ struct TerminalModel {
         - math [expression]: Evaluate a simple math expression (e.g., math 2+2)
         - history: Show command history
         - random: Display a random number
+        - wc [text]: Count the number of lines, words, and characters in the input text
+        - ping [host]: Simulate a ping to a host
         """
     }
 
@@ -66,6 +68,10 @@ struct TerminalModel {
             return commandHistory.joined(separator: "\n")
         case "random":
             return String(Int.random(in: 1...1000))
+        case "wc":
+            return wordCount(argument)
+        case "ping":
+            return pingHost(argument)
         default:
             return "Command not found: \(command)"
         }
@@ -83,5 +89,19 @@ struct TerminalModel {
         } else {
             return "Invalid expression"
         }
+    }
+
+    private func wordCount(_ text: String) -> String {
+        let lines = text.split(separator: "\n").count
+        let words = text.split(separator: " ").count
+        let characters = text.count
+        return "Lines: \(lines), Words: \(words), Characters: \(characters)"
+    }
+
+    private func pingHost(_ host: String) -> String {
+        if host.isEmpty {
+            return "Please provide a host to ping."
+        }
+        return "Pinging \(host)...\n\n--- \(host) ping statistics ---\n5 packets transmitted, 5 received, 0% packet loss"
     }
 }

@@ -51,6 +51,7 @@ class TerminalView: UIView {
         terminalTextField.spellCheckingType = .no
         terminalTextField.autocapitalizationType = .none
         terminalTextField.keyboardType = .asciiCapable
+        terminalTextField.returnKeyType = .go
         terminalTextField.attributedPlaceholder = NSAttributedString(
             string: "Enter command here...",
             attributes: [
@@ -69,7 +70,8 @@ class TerminalView: UIView {
 
         // Configure navigate button
         navigateButton.translatesAutoresizingMaskIntoConstraints = false
-        let navigateIcon = UIImage(systemName: "arrow.right.circle")
+        //let navigateIcon = UIImage(systemName: "arrow.right.circle")
+        let navigateIcon = UIImage(systemName: "info.circle")
         navigateButton.setImage(navigateIcon, for: .normal)
         navigateButton.tintColor = .green
         addSubview(navigateButton)
