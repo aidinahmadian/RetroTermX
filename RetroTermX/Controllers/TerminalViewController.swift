@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TerminalViewController: UIViewController, UITextFieldDelegate {
     private var terminalModel = TerminalModel()
@@ -18,7 +19,8 @@ class TerminalViewController: UIViewController, UITextFieldDelegate {
     private var cursorVisible = true
     private let cursorCharacter: Character = "_"
     private var currentColorIndex = 0
-    private let colors: [UIColor] = [.green, .cyan, .yellow]
+    private let colors: [UIColor] = [#colorLiteral(red: 0.3240896761, green: 0.9508374333, blue: 0.1933343709, alpha: 1), #colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1), #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1), #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1), #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)]
+    private var audioPlayer: AVAudioPlayer?
 
     override func loadView() {
         view = TerminalView()
@@ -30,7 +32,7 @@ class TerminalViewController: UIViewController, UITextFieldDelegate {
         terminalView.changeColorButton.addTarget(self, action: #selector(changeColorButtonTapped), for: .touchUpInside)
         terminalView.navigateButton.addTarget(self, action: #selector(navigateButtonTapped), for: .touchUpInside)
 
-        // Start the typing animation
+        playTypingSound()
         startTypingAnimation()
 
         // Register for keyboard notifications
@@ -49,6 +51,20 @@ class TerminalViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         cursorTimer?.invalidate()
+    }
+    
+    private func playTypingSound() {
+        guard let soundURL = Bundle.main.url(forResource: "TypingSound", withExtension: "mp3") else {
+            print("Failed to find sound file.")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.play()
+        } catch {
+            print("Failed to play sound: \(error)")
+        }
     }
 
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -90,7 +106,7 @@ class TerminalViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc private func navigateButtonTapped() {
-        let secondVC = SecondViewController()
+        let secondVC = AboutViewController()
         present(secondVC, animated: true, completion: nil)
     }
 
@@ -153,15 +169,6 @@ class TerminalViewController: UIViewController, UITextFieldDelegate {
             terminalView.terminalLabel.text?.append(String(cursorCharacter))
         } else {
             terminalView.terminalLabel.text = terminalView.terminalLabel.text?.trimmingCharacters(in: CharacterSet(charactersIn: String(cursorCharacter)))
-        }
-    }
-}
-
-extension UIScrollView {
-    func scrollToBottom(animated: Bool) {
-        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.height + contentInset.bottom)
-        if bottomOffset.y > 0 {
-            setContentOffset(bottomOffset, animated: animated)
         }
     }
 }

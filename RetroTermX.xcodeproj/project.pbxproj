@@ -14,7 +14,10 @@
 		E8FAC3F62C43D912005FB3EB /* TerminalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC3F52C43D912005FB3EB /* TerminalViewController.swift */; };
 		E8FAC3F82C43D91C005FB3EB /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC3F72C43D91C005FB3EB /* TerminalView.swift */; };
 		E8FAC3FA2C43D92A005FB3EB /* TerminalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC3F92C43D92A005FB3EB /* TerminalModel.swift */; };
-		E8FAC3FC2C43DAA8005FB3EB /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC3FB2C43DAA8005FB3EB /* SecondVC.swift */; };
+		E8FAC4012C43F2E4005FB3EB /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC4002C43F2E4005FB3EB /* AboutViewController.swift */; };
+		E8FAC4052C440DBD005FB3EB /* TypingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8FAC4042C440DBD005FB3EB /* TypingSound.mp3 */; };
+		E8FAC4082C440F2E005FB3EB /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC4072C440F2E005FB3EB /* UIScrollViewExtension.swift */; };
+		E8FAC40A2C440F48005FB3EB /* UIView+BlinkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FAC4092C440F48005FB3EB /* UIView+BlinkingExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +30,10 @@
 		E8FAC3F52C43D912005FB3EB /* TerminalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViewController.swift; sourceTree = "<group>"; };
 		E8FAC3F72C43D91C005FB3EB /* TerminalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
 		E8FAC3F92C43D92A005FB3EB /* TerminalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalModel.swift; sourceTree = "<group>"; };
-		E8FAC3FB2C43DAA8005FB3EB /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		E8FAC4002C43F2E4005FB3EB /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		E8FAC4042C440DBD005FB3EB /* TypingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TypingSound.mp3; sourceTree = "<group>"; };
+		E8FAC4072C440F2E005FB3EB /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		E8FAC4092C440F48005FB3EB /* UIView+BlinkingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+BlinkingExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +66,13 @@
 		E8A5A8C12C431A1800BA950D /* RetroTermX */ = {
 			isa = PBXGroup;
 			children = (
+				E8FAC4062C440EF2005FB3EB /* Helpers */,
 				E8A5A8C22C431A1800BA950D /* AppDelegate.swift */,
 				E8A5A8C42C431A1800BA950D /* SceneDelegate.swift */,
 				E8FAC3FD2C43DB6F005FB3EB /* Model */,
 				E8FAC3FE2C43DB76005FB3EB /* Views */,
 				E8FAC3FF2C43DB7D005FB3EB /* Controllers */,
+				E8FAC4042C440DBD005FB3EB /* TypingSound.mp3 */,
 				E8A5A8CB2C431A1A00BA950D /* Assets.xcassets */,
 				E8A5A8CD2C431A1A00BA950D /* LaunchScreen.storyboard */,
 				E8A5A8D02C431A1A00BA950D /* Info.plist */,
@@ -92,9 +100,18 @@
 			isa = PBXGroup;
 			children = (
 				E8FAC3F52C43D912005FB3EB /* TerminalViewController.swift */,
-				E8FAC3FB2C43DAA8005FB3EB /* SecondVC.swift */,
+				E8FAC4002C43F2E4005FB3EB /* AboutViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E8FAC4062C440EF2005FB3EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E8FAC4072C440F2E005FB3EB /* UIScrollViewExtension.swift */,
+				E8FAC4092C440F48005FB3EB /* UIView+BlinkingExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +174,7 @@
 			files = (
 				E8A5A8CC2C431A1A00BA950D /* Assets.xcassets in Resources */,
 				E8A5A8CF2C431A1A00BA950D /* Base in Resources */,
+				E8FAC4052C440DBD005FB3EB /* TypingSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,11 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8FAC40A2C440F48005FB3EB /* UIView+BlinkingExtension.swift in Sources */,
+				E8FAC4082C440F2E005FB3EB /* UIScrollViewExtension.swift in Sources */,
 				E8FAC3FA2C43D92A005FB3EB /* TerminalModel.swift in Sources */,
 				E8FAC3F82C43D91C005FB3EB /* TerminalView.swift in Sources */,
-				E8FAC3FC2C43DAA8005FB3EB /* SecondVC.swift in Sources */,
 				E8A5A8C32C431A1800BA950D /* AppDelegate.swift in Sources */,
 				E8A5A8C52C431A1800BA950D /* SceneDelegate.swift in Sources */,
+				E8FAC4012C43F2E4005FB3EB /* AboutViewController.swift in Sources */,
 				E8FAC3F62C43D912005FB3EB /* TerminalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
