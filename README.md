@@ -2,6 +2,10 @@
 
 RetroTermX is an iOS project designed to emulate a vintage terminal experience, providing users with a command-line interface. Developed in Swift using UIKit, the app offers a variety of commands and features to recreate the charm of classic computing.
 
+### Photos Sample
+
+<img width="300" alt="firstpic" src="Pics/firstpic.png"> <img width="300" alt="secondpic" src="Pics/secondpic.png">
+
 ## Features
 
 - **Simulated Terminal Environment:** Experience the look and feel of a vintage terminal.
@@ -9,10 +13,6 @@ RetroTermX is an iOS project designed to emulate a vintage terminal experience, 
 - **Color Customization:** Change the terminal text color with a simple button tap.
 - **Command Processing:** Execute various predefined commands to interact with the terminal.
 - **Command History:** Access previously entered commands.
-
-## Screenshots
-
-![RetroTermX Screenshot](screenshot.png)
 
 ## Installation
 
