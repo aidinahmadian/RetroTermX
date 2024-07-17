@@ -15,7 +15,7 @@ struct TerminalModel {
 
     init() {
         self.initialText = """
-        Welcome to the Vintage Terminal!
+        Welcome to the RetroTermX!
 
         User@Machine:~$ echo 'Hello, World!'
         Hello, World!
