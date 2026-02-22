@@ -53,8 +53,11 @@ class TerminalView: UIView {
         terminalTextField.keyboardType = .asciiCapable
         terminalTextField.returnKeyType = .go
         terminalTextField.keyboardAppearance = .dark
+        terminalTextField.layer.cornerRadius = 8
+        terminalTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: 35))
+        terminalTextField.leftViewMode = .always
         terminalTextField.attributedPlaceholder = NSAttributedString(
-            string: " Enter command here...",
+            string: "Enter command here...",
             attributes: [
                 .foregroundColor: UIColor.green.withAlphaComponent(0.5),
                 .font: UIFont(name: "Menlo", size: 14)!
